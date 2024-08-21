@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ルーム情報</title>
+	<link th:href="@{/css/background.css}" rel="stylesheet" href="../../static/css/background.css">
+	<!-- Bootstrap Core CSS -->
+	<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
+		href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- MetisMenu CSS -->
+	<link th:href="@{/vendor/metisMenu/metisMenu.min.css}" href="../../static/vendor/metisMenu/metisMenu.min.css"
+		rel="stylesheet">
+	<!-- Custom CSS -->
+	<link th:href="@{/dist/css/sb-admin-2.css}" href="../../static/dist/css/sb-admin-2.css" rel="stylesheet">
+	<!-- Custom Fonts -->
+	<link th:href="@{/vendor/font-awesome/css/font-awesome.min.css}"
+		href="../../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!-- DataTables CSS -->
+	<link th:href="@{/vendor/datatables-plugins/dataTables.bootstrap.css}"
+		href="../../static/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+	<!-- DataTables Responsive CSS -->
+	<link th:href="@{/vendor/datatables-responsive/dataTables.responsive.css}"
+		href="../../static/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+	<link th:href="@{/css/LoginPage.css}" rel="stylesheet" href="../../static/css/LoginPage.css">
+	<style>
+		.insertButton {
+			margin-top: 5vw;
+			margin-left: 80vw;
+
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<div class="logo"></div>
+	<div class="Login-block">
+		<img th:src="@{/img/logo.png}" src="../../static/img/logo.png">
+		<h2 class="page-title" background-color: rgba(255, 167, 183, 0.475);>ルーム情報</h2>
+	</div>
+	<button class="insertButton"><a th:href="@{/addRoom}" href="addRoom.html">追加</a></button>
+	<form role="form" th:action="@{/searchRoom}" method="post" id="loginForm">
+
+		<!-- pet_info -->
+		<center>
+			<div class="con">
+				<div class="con_title">
+				</div>
+				<table th:each="room:${rooms}" border="" style="margin-top: 5px;">
+					<thead>
+						<div>
+							<tr>
+								<th style="column-width: 100px; text-align: center;">番号</th>
+								<th style="column-width: 100px; text-align: center;" name="id">ルーム番号</th>
+								<th style="column-width: 100px; text-align: center;" name="roomtype">ルームタイプ</th>
+								<th style="column-width: 100px; text-align: center;" name="roomprice">ルーム一泊料金</th>
+								<th style="column-width: 100px; text-align: center;" name="updateTime">更新時間</th>
+								<th style="column-width: 100px; text-align: center;" name="selection">選択</th>
+							</tr>
+						</div>
+					</thead>
+					<tbody>
+
+						<tr class="table-row">
+							<td></td>
+							<td th:text="${room.ID}"></td>
+							<td th:text="${room.roomType}"></td>
+							<td th:text="${room.roomPrice}"></td>
+							<td th:text="${room.lastUpdateTime}"></td>
+							<td class="selection">
+								<!-- <select style="width: 100px; text-align: center;">選択 -->
+
+								<button style="width: 50px;" name="delete">削除</button>
+								<button style="width: 50px;" name="update">変更</button>
+
+								<!-- </select> -->
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<center>
+					<div class="con">
+						<div class="con_title">
+						</div>
+						<div style="margin-top: 30px;">
+							</tr>
+						</div>
+
+
+						</tr>
+					</div>
+					</table>
+
+				</center>
+		</center>
+		</from>
+
+		<div style="margin: 40px;">
+			<center>
+				<td>
+					<button type="submit" class="btn btn-default"><a th:href="@{/reservationInfoList}"
+							href="reservationInfoList.html">予約情報管理</a></button>
+					<button type="submit" class="btn btn-default"><a th:href="@{/petInfoList}"
+							href="petInfoList.html">ペットの情報管理</a></button>
+					<button type="submit" class="btn btn-default"><a th:href="@{/userinfoList}"
+							href="userinfoList.html">飼い主様情報管理</a></button>
+					<button type="submit" class="btn btn-default"><a th:href="@{/backendPage}"
+							href="backendPage.html">会計情報管理</a></button>
+					<button type="reset" class="btn btn-default" href="#"><a th:href="@{/login}"
+							href="login.html">ログアウト</a></button>
+				</td>
+			</center>
+		</div>
+</body>
+
+</html>

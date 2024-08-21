@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间👉与Mapper接口绑定 -->
+<mapper namespace="jp.co.brightstar.mapper.PetMapper">
+<!--insert id=对应的mapper.java文件里面的方法名；parameterType=对应的mapper.java文件里面的方法的参数类型-->
+	<insert id="insertPet" parameterType="Pet">
+	<!--sql语句直接搬过来-->
+		INSERT INTO PET_BASIC_INFO(ID,PET_NAME,KIND,PET_BIR,GENDER,COUNT,REFERENCE)
+		 VALUES (#{id},#{name},#{kind},#{birthday},#{gender},#{count},#{reference })
+	</insert>
+
+	<select id="searchPet" resultType="Pet">
+		SELECT
+			 ID
+			, PET_NAME AS NAME
+			, KIND
+			, PET_BIR  AS BIRTHDAY
+			, GENDER
+			, COUNT
+			, REFERENCE
+		FROM
+			PET_BASIC_INFO
+	    WHERE
+			DELETE_FLAG = 0
+		ORDER BY
+			ID
+	</select>
+
+		<delete id="deletePet" parameterType="String">
+		UPDATE PET_BASIC_INFO SET DELETE_FLAG = 1 WHERE ID = #{id }
+	  </delete>
+	<select id ="getPetById" resultType="Pet" parameterType="String">
+	SELECT
+	          ID
+			 ,PET_NAME AS NAME
+			, KIND
+			, PET_BIR
+			, GENDER
+			, COUNT
+			, REFERENCE
+		FROM
+			PET_BASIC_INFO
+	    WHERE
+			DELETE_FLAG = 0
+			AND ID = #{id }
+	</select>
+
+	<update id="petReset" parameterType="Pet">
+       UPDATE PET_BASIC_INFO SET PET_NAME = #{name }, KIND =#{kind }, PET_BIR = #{birthday }, GENDER = #{gender },COUNT = #{count },REFERENCE = #{reference }
+       WHERE ID = #{id }
+	</update>
+
+
+	</mapper>

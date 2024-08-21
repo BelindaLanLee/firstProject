@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ルーム情報</title>
+	<link rel="stylesheet" th:href="@{/css/background.css}" href="../../static/css/background.css">
+	<!-- Bootstrap Core CSS -->
+	<link th:href="@{/css/bootstrap.min.css}" href="../../static/vendor/bootstrap/css/bootstrap.min.css"
+		rel="stylesheet">
+	<!-- MetisMenu CSS -->
+	<link th:href="@{/vendor/metisMenu/metisMenu.min.css}" href="../../static/vendor/metisMenu/metisMenu.min.css"
+		rel="stylesheet">
+	<!-- Custom CSS -->
+	<link th:href="@{/dist/css/sb-admin-2.css}" href="../../static/dist/css/sb-admin-2.css" rel="stylesheet">
+	<!-- Custom Fonts -->
+	<link th:href="@{/vendor/font-awesome/css/font-awesome.min.css}"
+		href="../../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!-- DataTables CSS -->
+	<link th:href="@{/vendor/datatables-plugins/dataTables.bootstrap.css}"
+		href="../../static/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+	<!-- DataTables Responsive CSS -->
+	<link th:href="@{/vendor/datatables-responsive/dataTables.responsive.css}"
+		href="../../static/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/css/LoginPage.css}" href="../../static/css/LoginPage.css">
+	<style>
+		/* font design */
+		@font-face {
+			font-family: "newFont";
+
+			src: url('../../static/font/Stick-Regular.ttf')
+		}
+	</style>
+</head>
+
+<body>
+	<div class="logo"></div>
+	<div class="Login-block">
+		<img th:src="@{/img/logo.png}" src="../../static/img/logo.png">
+		<h2 class="page-title">ルーム追加</h2>
+	</div>
+	<form role="form" th:action="@{/addRoom}" method="post" id="addRoom">
+
+		<!-- pet_info -->
+		<center>
+			<div class="con" style="font-size: 20px;">
+				<table>
+					<br>
+					<br>
+					<tr>
+						<td width="150px"><label for="name">ルームタイプ</label></td>
+						<td style="padding-left:20px;">
+						<select style="width: 251px;" class="room-type;" name="roomtype">
+								<option value="A">スーパールーム</option>
+								<option value="B">スタンダードルーム</option>
+								<option value="C">デラックスルーム</option>
+							</select></td>
+					</tr>
+
+					<tr>
+						<td width="150px"><label for="kind">ルーム一泊料金</td>
+						<td style="padding-left:20px;">
+							<select style="width: 251px;" class="room-price;" name="roomprice">
+								<option value="3000">3000</option>
+								<option value="5000">5000</option>
+								<option value="8000">8000</option>
+							</select>
+						</td>
+
+					</tr>
+				</table>
+			</div>
+		</center>
+
+
+		</tr>
+		</div>
+		</table>
+
+		</center>
+		<div style="margin: 40px;">
+			<center>
+				<td>
+
+					<button type="submit" class="btn btn-default"><a th:href="@{/roomInfo}"
+							href="roomInfo.html">追加</button>
+					<button type="submit" class="btn btn-default"><a th:href="@{/userinfoList}"
+							href="userinfoList.html">飼い主様情報一覧</a></button>
+					<button type="reset" class="btn btn-default" href="#"><a th:href="@{/petInfoList}"
+							href="petInfoList.html">ペットの情報一覧</a></button>
+					<button type="reset" class="btn btn-default" href="#"><a th:href="@{/homePage}"
+							href="homePage.html">ログアウト</a></button>
+				</td>
+			</center>
+		</div>
+		</form>
+</body>
+
+</html>

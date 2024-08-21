@@ -1,0 +1,93 @@
+0<!DOCTYPE html>
+<!-- saved from url=(0040)file://mac/Home/Desktop/reservation.html -->
+<script type="text/javascript" th:src="@{/js/jquery.min.js}" src="../../static/js/jquery.min.js"></script>
+
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>loginmsgcheck</title>
+	<link rel="stylesheet" th:href="@{/css/background.css}" href="../../static/css/background.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/table_color.css}" href="../../static/css/table_color.css">
+		<link th:href="@{/css/LoginPage.css }" rel="stylesheet" href="../../static/css/LoginPage.css">
+
+	<style>
+		@font-face {
+			font-family: "newFont";
+			src: url('../../static/font/Stick-Regular.ttf')
+		}
+
+		.form-body {
+			font-family: "newFont";
+			font-size: 2vw;
+		}
+	</style>
+	<script>
+		$(function(){
+			$("#goback").click(function(){
+				history.go(-1);
+			})
+		});
+	</script>
+</head>
+
+<body class="form-body">
+	<div class="logo"></div>
+	<div class="Login-block">
+		<img th:src="@{/img/logo.png}" src="../../static/img/logo.png">
+		<h2 class="page-title"> 個人情報入力確認</h2>
+	</div>
+	<form role="form" action="confirmPage" method="post">
+
+		<!-- reservation_info -->
+		<center>
+			<div class="con">
+				<div class="con_title">
+				</div>
+				<br>
+				<br>
+				<table style="font-size: 30px;">
+					<tbody>
+						<tr>
+							<td width="300px"><label for="username">お名前：</label></td>
+							<td   th:text="${condition?.userName }"></td>
+						</tr>
+						<tr>
+							<td width="300px"><label for="furigana">フリガナ：</label></td>
+							<td  th:text="${condition?.furigana }"></td>
+						</tr>
+						<tr>
+							<td width="300px"><label for="phone_number">電話番号：</label></td>
+							<td   th:text="${condition?.phoneNo }"></td>
+						</tr>
+						<tr>
+							<td width="300px"><label for="password">パスワード：</label></td>
+							<td  th:text="${condition?.password }"></td>
+						</tr>
+						<tr>
+							<td width="300px"><label for="mailaddress">メールアドレス：</label></td>
+							<td   th:text="${condition?.emailAddress }"></td>
+						</tr>
+						<tr>
+							<td width="300px"><label class="postalcode">郵便番号：</label></td>
+							<td   th:text="${condition?.postcode }"></td>
+						</tr>
+						<tr>
+							<td width="300px"><label class="adress">ご住所：</label></td>
+							<td   th:text="${condition?.address }"></td>
+						</tr>
+
+					</tbody>
+				</table>
+	<button type="submit" class="btn btn-default form-body" style="margin-top: 1vw;">提出</button>
+	<button type="button" class="btn btn-default form-body" style="margin-top: 1vw;" id="goback">前のページへ戻る</button>
+	
+	</form>
+
+
+
+</body>
+
+</html>

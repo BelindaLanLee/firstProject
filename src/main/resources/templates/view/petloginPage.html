@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PETLogin Page</title>
+	<link rel="stylesheet" th:href="@{/css/background.css}" href="../../static/css/background.css">
+	<!-- Bootstrap Core CSS -->
+	<link th:href="@{/css/bootstrap.min.css}" href="../../static/vendor/bootstrap/css/bootstrap.min.css"
+		rel="stylesheet">
+	<!-- MetisMenu CSS -->
+	<link th:href="@{/vendor/metisMenu/metisMenu.min.css}" href="../../static/vendor/metisMenu/metisMenu.min.css"
+		rel="stylesheet">
+	<!-- Custom CSS -->
+	<link th:href="@{/dist/css/sb-admin-2.css}" href="../../static/dist/css/sb-admin-2.css" rel="stylesheet">
+	<!-- Custom Fonts -->
+	<link th:href="@{/vendor/font-awesome/css/font-awesome.min.css}"
+		href="../../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!-- DataTables CSS -->
+	<link th:href="@{/vendor/datatables-plugins/dataTables.bootstrap.css}"
+		href="../../static/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+	<!-- DataTables Responsive CSS -->
+	<link th:href="@{/vendor/datatables-responsive/dataTables.responsive.css}"
+		href="../../static/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/css/LoginPage.css}" href="../../static/css/LoginPage.css">
+	<link rel="shortcut icon" th:href="@{/img/IMG-3085-1.png}" href="../../static/img/IMG-3085-1.png"
+		type="image/x-icon">
+ 
+
+</head>
+
+<body class="form-body">
+	<div class="logo"></div>
+	<div class="Login-block">
+		<img th:src="@{/img/logo.png}" src="../../static/img/logo.png">
+		<h1 class="page-title">ペットの情報</h1>
+	</div>
+
+	<form role="form" th:action="@{/petloginPage}" method="post" id="petloginPage">
+
+		<!-- pet_info -->
+		<center>
+			<div class="con">
+				<div class="con_title">
+				</div>
+				<table border="" cellspacing="" cellpadding="30" style="font-size: 25px;" class="form-style">
+					<br>
+					<br>
+					<tr>
+						<td width="180px" height="40px"><label for="name">ねこちゃんの名前（必須）*：</label></td>
+						<td><input type="text" style="width:750px; height:40px; font-family: 'newFont';
+						font-size: 2vw;"  placeholder="ねこの名前を入力してください" id="name" name="name" th:value="${name }">
+						</td>
+					</tr>
+					<tr>
+						<td width="180px" height="40px"><label for="kind">ねこの品種:</td>
+						<td><input type="text" style="width:750px; height:40px;font-family: 'newFont';
+						font-size: 2vw;" placeholder="（分からなければ書かなくてもよい）" id="kind" name="kind" th:value="${kind }">
+						</td>
+					</tr>
+					<tr>
+						<td width="180px" height="40px"><label for="birthday">ねこ誕生日（必須）*：</label></td>
+						<td>
+							<input type="date" style="width:750px; height:40px;font-family: 'newFont';font-size: 2vw;" 
+							placeholder="XXXX/XX/XX" id="birthday" name="birthday" th:value="${birthday }"> </td>
+						</td>
+					</tr>
+					<tr>
+						<td width="180px" height="40px"><label for="name">性別：</label></td>
+						<td> <input type="text" style="width:750px; height:40px;font-family: 'newFont';font-size: 2vw;" placeholder="オス/メス" id="gender"	
+						name="gender" th:value="${gender }"> </td>
+						
+					</tr>
+					<tr>
+						<td width="180px" height="40px"><label for="name">ねこの来店回数：</label></td>
+						<td>
+							 <input type="text" style="width:750px; height:40px;font-family: 'newFont';font-size: 2vw;" 
+							 placeholder="来店回数" id="count" name="count" th:value="${count }">
+						</td>
+					</tr>
+					<tr>
+						<td width="180px" height="40px"><label for="name">備考：</label></td>
+						<td width="180px" height="40px" style="width:750px;">
+							<textarea rows="20" cols="100" name="reference" th:value="${reference }">
+                        </textarea>
+						</td>
+					</tr>
+
+				</table>
+		</center>
+		
+		<center>
+			<td>
+				<br>
+				<br>
+
+				<button type="submit" class="btn btn-default"
+					style="font-size: 2vw; margin-bottom: 2vw; margin-top: -4vw;
+					 font-family:newFont;" id="submit">
+					確認</button>
+				<button type="reset" class="btn btn-default"
+					style="font-size: 2vw; margin-bottom: 2vw; margin-top: -4vw;font-family:newFont;">リセット</button>
+			</td>
+		</center>
+		</form>
+		
+</body>
+
+</html>

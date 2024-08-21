@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.co.brightstar.mapper.ReservationMapper">
+
+	
+	
+		<select id="selectReservation" resultType="Reservation" parameterType="ReservationCondition">
+	  SELECT
+			RI.ID
+			, ROOM_ID
+			, PET_NAME
+			, FROM_DATE
+			, TO_DATE
+			, TOTAL_DAYS
+		FROM
+			RESERVATION_INFO AS RI
+		LEFT JOIN
+			PET_BASIC_INFO AS PBI
+		ON
+			RI.ID = PBI.ID	
+	<where>
+			DELETE_FLAG = 0
+			<if test="fromdate != ''">
+				AND FROM_DATE >= #{fromdate}
+			</if>
+			<if test="todate != ''">
+				AND TO_DATE &lt;= #{todate}
+			</if>
+	   </where>
+		ORDER BY
+			RI.ID
+	</select>
+	
+	<select id="getPriceByRoomCode" resultType="int" parameterType="string">
+		SELECT ROOM_PRICE FROM ROOMANDPRICE WHERE ROOM_CODE = #{roomCode }
+	</select>
+	
+	<select id="getPetNameByPetid" resultType="string" parameterType="string">
+		SELECT PET_NAME FROM PET_BASIC_INFO WHERE PET_NAME = #{petName }
+	</select>
+	
+	<insert id="insertReservation" parameterType="string">
+		INSERT INTO RESERVATION_INFO(ROOM_TYPE,ROOM_PRICE,FROM_DATE,TO_DATE) VALUES (#{roomtype},#{roomprice},#{fromdate},#{todate})
+	</insert>
+	
+	
+<!--	<select id="getTotaldays"  parameterType="String">-->
+<!--		SELECT DATEDIFF  FROM  RESERVATION_INFO  (#{fromdate}, #{todate} )-->
+<!--	</select>-->
+	
+	<delete id="deleteReservation" parameterType="String">
+		UPDATE RESERVATION_INFO SET DELETE_FLAG = 1 WHERE ID = #{id }
+	</delete>
+	
+	
+	</mapper>

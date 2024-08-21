@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<script type="text/javascript" th:src="@{/js/jquery.min.js}" src="../../static/js/jquery.min.js"></script>
+
+<head>
+	<meta charset="UTF-8">
+	<title>LRcat Hotel Management</title>
+	<link rel="stylesheet" th:href="@{/css/homePage.css}" href="../../static/css/homePage.css">
+	<link rel="stylesheet" th:href="@{/css/hudong1.css}" href="../../static/css/hudong1.css">
+
+	<style>
+		#cursor {
+			width: 50px;
+			/* 调整图像的宽度 */
+			height: 50px;
+			/* 调整图像的高度 */
+			background-image: url('__${/img/nekohand.png}__');
+			background-size: cover;
+			position: absolute;
+			pointer-events: none;
+			z-index: 9999;
+		}
+	</style>
+
+</head>
+
+<body style="background-color:rgb( 255  167   183) ;">
+	<div class="cursor" id="cursor">
+		<img style="width: 50px; height: 50px;" th:src="@{/img/nekohand.png}" src="../../static/img/nekohand.png">
+	</div>
+	<!--    <div class="cursor" style="width: 30px; height: 30px;">-->
+	<!--		<img th:src="@{/img/nekohand.png}" style="width: 30px; height: 30px;">-->
+	<!--	</div>-->
+
+	<div id="wrapper">
+		<div class="catlogo" id="homepagecat-logo">
+			<img th:src="@{/img/hotellogo.png}" src="../../static/img/hotellogo.png" alt="nekologo"
+				style="background-color: rgb( 255  167   183);">
+		</div>
+		<nav class="navbar-header">
+
+			<ul id="nav-head" class="navbar-right" style="padding-top: 3%;">
+				<li class="dropdown"><a th:href="@{/hotelDetail}">LRCAT HOTELとは</a></li>
+				<li class="dropdown"><a th:href="@{/login}">ログイン</a></li>
+				<li class="dropdown"><a th:href="@{/loginPage}">新規登録</a></li>
+				<li class="dropdown"><a href="#">よくある質問</a></li>
+				<li class="dropdown"><a href="#">お問い合わせ</a></li>
+			</ul>
+
+		</nav>
+
+	</div>
+
+	<div class="nekoHP" style="margin-top: -5vw;">
+		<div class="image-container">
+			<img th:src="@{/img/homepageNotail.png}" src="../../static/img/homepageNotail.png" alt="nekohomepage">
+			<img th:src="@{/img/catTail.png}" src="../../static/img/catTail.png" alt="nekoTail" class="catTail">
+			<!-- <div>
+            <h3 class="body-words">LRCAT HOTELに</h3>
+            <h3 class="body-words">任せてください～</h3>
+        </div> -->
+		</div>
+
+	</div>
+
+</body>
+
+<script type="text/javascript">
+	var cursor = document.querySelector("#cursor");
+
+	document.addEventListener("mousemove", function (e) {
+		cursor.style.left = e.clientX + "px"
+		cursor.style.top = e.clientY + "px";
+	});
+</script>
+
+</html>

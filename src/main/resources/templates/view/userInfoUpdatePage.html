@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>userInfoUpdatePage</title>
+	<link rel="stylesheet" th:href="@{/css/background.css}" href="../../static/css/background.css">
+	<link rel="stylesheet" th:href="@{/css/table_color.css}"  href="../../static/css/table_color.css">
+	<link th:href="@{/css/LoginPage.css }" rel="stylesheet" href="../../static/css/LoginPage.css">
+	<script type="text/javascript" th:src="@{/js/jquery.min.js}" src="../../static/js/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$('#checked').click(function(){
+				window.location.href = "/brightstar/LRcatHotel/submitPage";
+			});
+			
+		
+			//
+			$('#change').click(function() {
+    		// 获取前面页面的值
+    			var id= $('[name="id1"]').eq(0).text().trim();
+				var userName = $('[name="userName1"]').eq(0).text().trim();
+				var furigana = $('[name="furigana1"]').eq(0).text().trim();
+				var phoneNo = $('[name="phoneNo1"]').eq(0).text().trim();
+				var password = $('[name="password1"]').eq(0).text().trim();
+				var emailAddress = $('[name="emailAddress1"]').eq(0).text().trim();
+				var postcode = $('[name="postcode1"]').eq(0).text().trim();
+				var address = $('[name="address1"]').eq(0).text().trim();
+    		// 构造URL参数
+    			var params = "?id=" + encodeURIComponent(id) +
+    			  "&userName=" + encodeURIComponent(userName) +
+                 "&furigana=" + encodeURIComponent(furigana) +
+                 "&phoneNo=" + encodeURIComponent(phoneNo) +
+                 "&password=" + encodeURIComponent(password) +
+                 "&emailAddress=" + encodeURIComponent(emailAddress) +
+                 "&postcode=" + encodeURIComponent(postcode) +
+                 "&address=" + encodeURIComponent(address);
+
+    		// 跳转到userInfocheck页面并传递参数
+    			window.location.href = "/brightstar/LRcatHotel/userInfocheck" + params;
+});
+			//
+			
+		})
+		
+	</script>
+	<style>
+		@font-face {
+			font-family: "newFont";
+			src: url('../../static/font/Stick-Regular.ttf')
+		}
+	</style>
+	
+</head>
+
+<body class="form-body" >
+	<div class="logo"></div>
+	<div class="Login-block" style="font-family: 'newFont';">
+		<img th:src="@{/img/logo.png}" src="../../static/img/logo.png">
+		<h2 class="page-title"> 個人情報確認/変更</h2>
+	</div>
+	<form  id="newForm" style="font-family: 'newFont';" >
+
+		<!-- reservation_info -->
+		<center>
+			<div class="con">
+				<div class="con_title">
+				</div>
+				<br>
+				<br>
+				<table style="font-size: 30px;font-family: newFont;">
+					<tbody>
+						<tr>
+							<td  width="5px"><td name="id" >会員番号：</td></td>
+							<td th:text="${condition.id }" name="id1"></td>
+						</tr>
+						
+						<tr>
+							<td  width="5px"><td name="userName" >お名前：</td></td>
+							<td th:text="${condition.userName }" name="userName1"></td>
+						</tr>
+						
+						<tr>
+							<td  width="5px"><td name="furigana" >フリガナ</td></td>
+							<td  th:text="${condition.furigana }" name="furigana1"></td>
+						</tr>
+						
+						<tr>
+							<td width="5px"><td name="phoneNo">携帯番号：</td></td>
+							<td th:text="${condition.phoneNo }" name="phoneNo1"></td>
+						</tr>
+						
+						<tr>
+							<td width="5px"><td name="password" >パスワード：</td></td>
+							<td th:text="${condition.password }" name="password1"></td>
+						</tr>
+						
+						<tr>
+							<td width="5px"><td name="emailAddress">メールアドレス：</td></td>
+							<td th:text="${condition.emailAddress }" name="emailAddress1"></td>
+						</tr>
+						
+						<tr>
+							<td width="5px"><td name="postcode">郵便番号：</td></td>
+							<td th:text="${condition.postcode}" name="postcode1"></td>
+						</tr>
+						
+						<tr>
+							<td width="5px"><td name="address">ご住所：</td></td>
+							<td  th:text="${condition.address}" name="address1"></td>
+						</tr>
+						
+					
+						
+					</tbody>
+				</table>
+	　　<button type="button" class="btn btn-default" style="margin-top: 1vw;font-size: 2vw;font-family: 'newFont';" 
+			id="checked">確定</button>
+		<button type="button" class="btn btn-default" style="margin-top: 1vw;font-size: 2vw;font-family: 'newFont';"
+		id="change">変更</button>
+
+	</form>
+
+</body>
+
+</html>

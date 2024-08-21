@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login Page</title>
+	<link rel="stylesheet" th:href="@{/css/LoginPage.css}" href="../../static/css/LoginPage.css">
+	<!-- Bootstrap Core CSS -->
+	<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
+		href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- MetisMenu CSS -->
+	<link th:href="@{/vendor/metisMenu/metisMenu.min.css}" href="../../static/vendor/metisMenu/metisMenu.min.css"
+		rel="stylesheet">
+	<!-- Custom CSS -->
+	<link th:href="@{/dist/css/sb-admin-2.css}" href="../../static/dist/css/sb-admin-2.css" rel="stylesheet">
+	<!-- Custom Fonts -->
+	<link th:href="@{/vendor/font-awesome/css/font-awesome.min.css}"
+		href="../../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!-- DataTables CSS -->
+	<link th:href="@{/vendor/datatables-plugins/dataTables.bootstrap.css}"
+		href="../../static/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+	<!-- DataTables Responsive CSS -->
+	<link th:href="@{/vendor/datatables-responsive/dataTables.responsive.css}"
+		href="../../static/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
+
+	<link rel="stylesheet" th:href="@{/css/LoginPage.css}" href="../../static/css/LoginPage.css">
+	<script type="text/javascript" th:src="@{/js/jquery.min.js}" src="../../static/js/jquery.min.js"></script>
+
+	<script type="text/javascript" th:src="@{/js/loginPage.js}" src="../../static/js/loginPage.js"></script>
+
+
+</head>
+
+<body class="form-body">
+
+	<div class="Login-block">
+		<img th:src="@{/img/hotellogo.png}" src="../../static/img/hotellogo.png" alt="hotelLogo">
+		<h2 class="page-title">飼い主様の新規登録</h2>
+	</div>
+	
+	<form role="form" th:action="@{/loginPage}" method="post" id="loginForm">
+
+		<div id="body">
+			<!-- name -->
+			<div class="form-group">
+				<label>飼い主様の名前（漢字/アルファベット）</label>
+				<input type="text" name="userName" class="form-control" 
+				placeholder="例）神田　新一  【15文字以内入力してください】"  id="userName">
+			 <p id="userNameError"></p> <!-- 错误消息元素 -->
+			</div>
+
+			<!--furigana name -->
+			<div class="form-group">
+				<label>フリガナ（必須/アルファベット）</label>
+				<input type="text" name="furigana" class="form-control" 
+				placeholder="例）カンダ　シンイチ　【8～15文字以内入力してください】" id="furigana">
+				<span id="furiganaError" class="error-message"></span> <!-- 错误消息元素 -->
+			</div>
+
+			<!-- tel -->
+			<div class="form-group">
+				<label id="id">電話番号（必須）</label>
+				<input type="text" name="phoneNo" class="form-control" 
+				placeholder="電話番号を入力してください（ハイフンなし）" id="phoneNumber">
+				<span id="phoneNumberError" class="error-message"></span> <!-- 错误消息元素 -->
+			</div>
+
+			<!-- psw -->
+			<div class="form-group">
+				<label>パスワード（必須）</label>
+				<input type="password" name="password" class="form-control" 
+				placeholder="パスワードを８～15文字で入力してください" id="password">
+				<span id="passwordError" class="error-message"></span> <!-- 错误消息元素 -->				
+			</div>
+
+			<!-- email -->
+			<div class="form-group">
+				<label>メールアドレス（必須）</label>
+				<input type="text" name="emailAddress" class="form-control" 
+				placeholder="メールを入力してください" id="emailAddress">
+				<span id="emailAddressError" class="error-message"></span> <!-- 错误消息元素 -->
+			</div>
+
+			<!-- postalcode -->
+			<div class="form-group">
+				<label>郵便番号（必須）</label>
+				<input type="text" name="postcode" class="form-control" 
+				placeholder="郵便番号を入力してください（ハイフンなし）" id="postcode">
+			    <span id="postcodeError" class="error-message"></span> <!-- 错误消息元素 -->
+			</div>
+
+			<!-- adress -->
+			<div class="form-group">
+				<label>ご住所（必須）</label>
+				<input type="text" name="address" class="form-control" 
+				placeholder="ご住所を入力してください" id="address">
+				<span id="addressError" class="error-message"></span> <!-- 错误消息元素 -->
+			</div>
+			
+			<div id="submit-button">
+				<button type="submit" class="btn btn-default" id="checkButton">登録</button>
+				<button type="reset" class="btn btn-default">リセット</button>
+			</div>
+		</div>
+
+	</form>
+
+</body>
+
+
+</html>

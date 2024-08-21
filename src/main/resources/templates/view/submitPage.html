@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>submitPage</title>
+	<link rel="stylesheet" th:href="@{/css/submitPage.css}" href="../../static/css/submitPage.css">
+	<link rel="stylesheet" th:href="@{/css/homePage.css}" href="../../static/css/homePage.css">
+	<script type="text/javascript" th:src="@{/js/jquery.min.js}" src="../../static/js/jquery.min.js"></script>
+	<script type="text/javascript" th:src="@{/js/deleteUserInfo.js}" src="../../static/js/deleteUserInfo.js"></script>
+
+</head>
+
+<body>
+	<!-- Navbar -->
+	<nav id="navbar">
+		<ul class="navbar-items flexbox-col">
+			<li class="navbar-logo flexbox-left">
+				<a class="navbar-item-inner flexbox" style="width: 5px;height:5px">
+					<img th:src="@{/img/logo.png}" src="../../static/img/hotellogo.png">
+				</a>
+			</li>
+			<div class="test-logo"> <img th:src="@{/img/hotellogo.png}" src="../../static/img/hotellogo.png"></div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+
+			<li class="navbar-item flexbox-left">
+				<a th:href="@{/petloginPage}" href="petloginPage.html" class="navbar-item-inner flexbox-left">
+					<div class="navbar-item-inner-icon-wrapper flexbox">
+						<ion-icon name="search-outline"></ion-icon>
+					</div>
+					<span class="link-text" style="color: aliceblue;">ペット登録</span>
+				</a>
+			</li>
+			
+				<li class="navbar-item flexbox-left">
+				<a th:href="@{/petSubmit}" href="petSubmit.html" class="navbar-item-inner flexbox-left">
+					<div class="navbar-item-inner-icon-wrapper flexbox">
+						<ion-icon name="search-outline"></ion-icon>
+					</div>
+					<span class="link-text" style="color: aliceblue;">ペット情報</span>
+				</a>
+			</li>
+
+
+			<li class="navbar-item flexbox-left">
+				<a th:href="@{/userInfoUpdatePage}" href="userInfoUpdatePage.html"
+					class="navbar-item-inner flexbox-left">
+					<div class="navbar-item-inner-icon-wrapper flexbox">
+						<ion-icon name="folder-open-outline"></ion-icon>
+					</div>
+					<span class="link-text" style="color: aliceblue;">個人情報変更</span>
+				</a>
+			</li>
+			<li class="navbar-item flexbox-left">
+				<a th:href="@{/hotelDetail}" href="hotelDetail.html" class="navbar-item-inner flexbox-left">
+					<div class="navbar-item-inner-icon-wrapper flexbox">
+						<ion-icon name="pie-chart-outline"></ion-icon>
+					</div>
+					<span class="link-text" style="color: aliceblue;">ホテル紹介</span>
+				</a>
+			</li>
+
+			<li class="navbar-item flexbox-left">
+				<a th:href="@{/reservation}" href="reservation.html" class="navbar-item-inner flexbox-left">
+					<div class="navbar-item-inner-icon-wrapper flexbox">
+						<ion-icon name="people-outline"></ion-icon>
+					</div>
+					<span class="link-text" style="color: aliceblue;">ホテル予約</span>
+				</a>
+			</li>
+
+			<li class="navbar-item flexbox-left">
+				<a th:href="@{/reservationInfo}" href="reservationInfo.html" class="navbar-item-inner flexbox-left">
+					<div class="navbar-item-inner-icon-wrapper flexbox">
+						<ion-icon name="people-outline"></ion-icon>
+					</div>
+					<span class="link-text" style="color: aliceblue;">予約履歴/削除</span>
+				</a>
+			</li>
+
+			<li class="navbar-item flexbox-left">
+				<a th:href="@{/homePage}" href="homePage.html" class="navbar-item-inner flexbox-left">
+					<div class="navbar-item-inner-icon-wrapper flexbox">
+						<ion-icon name="chatbubbles-outline"></ion-icon>
+					</div>
+					<span class="link-text" style="color: aliceblue;">ホームページ</span>
+				</a>
+			</li>
+
+			<li class="navbar-item flexbox-left">
+				<a th:href="@{/login}" href="login.html" class="navbar-item-inner flexbox-left">
+					<div class="navbar-item-inner-icon-wrapper flexbox">
+						<ion-icon name="settings-outline"></ion-icon>
+					</div>
+					<span class="link-text" style="color: aliceblue;">ログアウト</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+	<div class="body-pic" >
+
+		<div id="wrapper">
+			<nav class="navbar-header">
+				<ul id="nav-head" class="navbar-right" style="padding-top: 3%;">
+					<li class="dropdown"><a th:href="@{/hotelDetail}" href="hotelDetail.html">HOTELとは</a></li>
+					<li class="dropdown"><a th:href="@{/reservation}" href="reservation.html">ホテル予約</a></li>
+					<li class="dropdown"><a th:href="@{/login}" href="login.html">ログイン</a></li>
+					<li class="dropdown"><a th:href="@{/loginPage}" href="loginPage.html">新規登録</a></li>
+					<li class="dropdown"><a th:href="@{/petloginPage}" href="petloginPage.html">ペット登録</a></li>
+					<li class="dropdown"><a href="#">お問い合わせ</a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="slanted-container">
+			<h3 class="clickhere" style="margin-bottom: 1vw;">変更などは</h3>
+			<h3 class="clickhere">←マウスをここに移動してみてニャー～</h3>
+		</div>
+		<div class="user-container">
+			<h3 class="user-info">お客様の情報はこちら～　↓</h3>
+		</div>
+		
+		<div class="info-style" th:unless="${condition == null}" style="margin-top: 0vw;">
+			
+			<table style="margin-top:0vw;">
+				
+		<div style="margin-top: -10vw;">
+				<tr>
+					<td>会員番号：</td>
+					<td th:text="${condition.id }"></td>	
+				</tr>
+			
+				<tr>
+					<td>お名前：</td>
+					<td th:text="${condition.userName }"></td>	
+				</tr>
+
+				<tr>
+					<td>フリガナ：</td>
+					<td  th:text="${condition.furigana }"></td>
+				</tr>
+
+				<tr>
+					<td>携帯番号：</td>
+					<td  th:text="${condition.phoneNo }"></td>
+				</tr>
+
+				<tr>
+					<td>パスワード：</td>
+					<td  th:text="${condition.password }"></td>
+				</tr>
+
+				<tr>
+					<td>メールアドレス：</td>
+					<td   th:text="${condition.emailAddress }"></td>
+				</tr>
+
+				<tr>
+					<td>郵便番号：</td>
+					<td  th:text="${condition.postcode}"></td>
+				</tr>
+
+				<tr>
+					<td>ご住所：</td>
+					<td  th:text="${condition.address}"></td>		
+				</tr>
+				
+				</div>
+				<!-- 変更部分 -->
+				<div >
+		        <tr>
+			          <br>
+			          <a th:href="@{/userInfoUpdatePage}"   class="button-cat" style="color: aliceblue;margin-left: -10vw;width: 5vw;" id="userInfo">情報変更</a>
+			          
+					 <button type="button"  class="button-cat" 
+							style="color: aliceblue;margin-left:-10vw;width: 10vw;"
+							th:data-phoneNo="|${condition.phoneNo}|" 
+							th:data-userName="|${condition.userName}|"
+							th:onclick="deleteUserInfo(this.getAttribute('data-phoneNo'),this.getAttribute('data-userName'))">情報削除</button>
+			          
+			          <a th:href="@{/reservation}" href="reservation.html"  class="button-cat" 
+			          		style="color: aliceblue;margin-left:1vw;">ホテル予約</a>
+			    </div>
+			 </tr>
+		
+		<!-- end -->
+				
+			</table>
+				
+		</div>
+
+
+
+				<div style="height:10vw ; width: auto;">
+
+				</div>
+
+	</div>
+</body>
+
+</html>

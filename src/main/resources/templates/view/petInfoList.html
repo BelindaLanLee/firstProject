@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ペット情報リスト</title>
+	<link rel="stylesheet" th:href="@{/css/background.css}" href="../../static/css/background.css">
+	<!-- Bootstrap Core CSS -->
+	<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
+		href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- MetisMenu CSS -->
+	<link th:href="@{/vendor/metisMenu/metisMenu.min.css}" href="../../static/vendor/metisMenu/metisMenu.min.css"
+		rel="stylesheet">
+	<!-- Custom CSS -->
+	<link th:href="@{/dist/css/sb-admin-2.css}" href="../../static/dist/css/sb-admin-2.css" rel="stylesheet">
+	<!-- Custom Fonts -->
+	<link th:href="@{/vendor/font-awesome/css/font-awesome.min.css}"
+		href="../../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!-- DataTables CSS -->
+	<link th:href="@{/vendor/datatables-plugins/dataTables.bootstrap.css}"
+		href="../../static/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+	<!-- DataTables Responsive CSS -->
+	<link th:href="@{/vendor/datatables-responsive/dataTables.responsive.css}"
+		href="../../static/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/css/LoginPage.css}" href="../../static/css/LoginPage.css">
+</head>
+
+<body>
+	<div class="logo"></div>
+	<div class="Login-block">
+		<img th:src="@{/img/logo.png}" src="../../static/img/logo.png">
+		<h2 class="page-title">ペット情報変更</h2>
+	</div>
+	<form role="form" th:action="@{/petInfoList}" method="post" id="petInfoList">
+
+		<!-- pet_info -->
+		<center>
+		<div class="con">
+			<div class="con_title">
+			</div>
+			<table style="font-size: 2vw;" width="100%" class="table table-striped table-bordered table-hover"
+				id="result">
+
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>ねこちゃんの名前：</th>
+						<th>ねこの品種:</th>
+						<th>誕生日：</th>
+						<th>性別：</th>
+						<th>ねこの来店回数：</th>
+						<th>備考：</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="pet : ${pets }">
+						<td th:text="${pet.id }"></td>
+						<td th:text="${pet.name1 }"></td>
+						<td th:text="${pet.kind1 }"></td>
+						<td th:text="${pet.birthday1 }"></td>
+						<td th:text="${pet.count1 }"></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+				<td>
+					<button type="submit" class="btn btn-default"><a th:href="@{/reservationInfoList}"
+							href="reservationInfoList.html">予約情報管理</a></button>
+					<button type="submit" class="btn btn-default"><a th:href="@{/petloginPage}"
+							href="petloginPage.html">ペットの情報追加</a></button>
+					<button type="submit" class="btn btn-default"><a th:href="@{/userinfoList}"
+							href="userinfoList.html">飼い主様情報一覧</a></button>
+					<button type="submit" class="btn btn-default"><a th:href="@{/backendPage}"
+							href="backendPage.html">会計情報</a></button>
+					<button type="reset" class="btn btn-default" href="#"><a th:href="@{/homePage}"
+							href="homePage.html">ログアウト</a></button>
+				</td>
+			</center>
+			<script th:src="@{/js/jquery.min.js}"></script>
+	<script th:src="@{/js/search.js}"></script>
+		</div>
+</body>
+
+</html>
